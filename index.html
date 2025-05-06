@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Public API Dashboard</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Chart.js CDN (we'll use this for now) -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
@@ -22,11 +21,18 @@
             <p id="item1-status" class="status-message">Loading data...</p>
         </section>
 
-        <!-- More items will be added here in later phases -->
+        <section class="dashboard-item" id="item2-container">
+            <h2>Data Source 2: Placeholder Title</h2>
+            <div class="chart-container">
+                <canvas id="item2Chart"></canvas> <!-- New canvas for the second chart -->
+            </div>
+            <p id="item2-status" class="status-message">Loading data...</p> <!-- New status for the second item -->
+        </section>
+
     </main>
 
     <footer>
-        <p>© 2023 Tharun Ganesh - Data sourced from public APIs.</p>
+        <p>© 2025 Tharun - Data sourced from public APIs.</p>
     </footer>
 
     <script src="script.js"></script>
