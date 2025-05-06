@@ -1,61 +1,141 @@
 body {
-    font-family: sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     line-height: 1.6;
     margin: 0;
-    background-color: #f4f4f4;
+    background-color: #eef1f5; /* Lighter grey background */
     color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 header {
-    background: #333;
-    color: #fff;
-    padding: 1rem 0;
+    background: #2c3e50; /* Darker blue */
+    color: #ecf0f1; /* Lighter text */
+    padding: 1.2rem 20px;
     text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between; /* Align title and button */
+    align-items: center;
 }
 
 header h1 {
     margin: 0;
+    font-size: 1.8em;
+}
+
+#refreshAllBtn {
+    background-color: #3498db; /* Blue button */
+    color: white;
+    border: none;
+    padding: 0.6em 1.2em;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.2s ease;
+}
+
+#refreshAllBtn:hover {
+    background-color: #2980b9;
 }
 
 main {
-    padding: 20px;
+    padding: 25px;
+    flex-grow: 1; /* Make main content take available space */
 }
 
 #dashboard-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Basic responsive grid */
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
 }
 
 .dashboard-item {
     background: #fff;
     padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+}
+
+.item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
 }
 
 .dashboard-item h2 {
     margin-top: 0;
-    color: #555;
+    margin-bottom: 0; /* Removed bottom margin as it's handled by item-header */
+    color: #34495e; /* Slightly darker title */
+    font-size: 1.3em;
 }
 
-.chart-container {
-    position: relative; /* For Chart.js responsiveness */
-    height: 250px;   /* Or adjust as needed */
+.chart-area { /* Changed from .chart-container */
+    position: relative;
+    height: 280px; /* Adjusted height */
     width: 100%;
+    flex-grow: 1; /* Allow chart area to grow */
+    margin-bottom: 10px;
 }
 
 .status-message {
     font-style: italic;
-    color: #777;
+    color: #e74c3c; /* Red for errors */
     text-align: center;
     margin-top: 10px;
+    font-size: 0.9em;
+    min-height: 1.2em; /* Reserve space to prevent layout shift */
 }
+.status-message.success { /* Optional for success messages if needed */
+    color: #2ecc71; /* Green */
+}
+
+
+/* Loader styles */
+.loader {
+    border: 4px solid #f3f3f3; /* Light grey */
+    border-top: 4px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    animation: spin 1s linear infinite;
+    display: none; /* Initially hidden */
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
 
 footer {
     text-align: center;
     padding: 20px;
-    background: #333;
-    color: #fff;
-    margin-top: 30px;
+    background: #34495e; /* Consistent dark footer */
+    color: #bdc3c7; /* Lighter grey text */
+    margin-top: auto; /* Push footer to bottom if content is short */
 }
+
+/* Responsive adjustments */
+ @media (max-width: 768px) {
+     header {
+         flex-direction: column;
+         gap: 10px;
+     }
+     header h1 {
+         font-size: 1.5em;
+     }
+     #refreshAllBtn {
+         width: 100%;
+         max-width: 200px; /* Limit button width on mobile */
+     }
+     .chart-area {
+         height: 250px;
+     }
+ }

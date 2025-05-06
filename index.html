@@ -10,29 +10,35 @@
 <body>
     <header>
         <h1>My Public API Dashboard</h1>
+        <button id="refreshAllBtn">Refresh All Data</button>
     </header>
 
     <main id="dashboard-container">
         <section class="dashboard-item" id="item1-container">
-            <h2>Data Source 1: Placeholder Title</h2>
-            <div class="chart-container">
+            <div class="item-header">
+                <h2>Data Source 1: Placeholder Title</h2>
+                <div class="loader" id="item1-loader"></div>
+            </div>
+            <div class="chart-area"> <!-- Renamed for clarity -->
                 <canvas id="item1Chart"></canvas>
             </div>
-            <p id="item1-status" class="status-message">Loading data...</p>
+            <p id="item1-status" class="status-message"></p>
         </section>
 
         <section class="dashboard-item" id="item2-container">
-            <h2>Data Source 2: Placeholder Title</h2>
-            <div class="chart-container">
-                <canvas id="item2Chart"></canvas> <!-- New canvas for the second chart -->
+            <div class="item-header">
+                <h2>Data Source 2: Placeholder Title</h2>
+                <div class="loader" id="item2-loader"></div>
             </div>
-            <p id="item2-status" class="status-message">Loading data...</p> <!-- New status for the second item -->
+            <div class="chart-area">
+                <canvas id="item2Chart"></canvas>
+            </div>
+            <p id="item2-status" class="status-message"></p>
         </section>
-
     </main>
 
     <footer>
-        <p>© 2025 Tharun - Data sourced from public APIs.</p>
+        <p>© 2025 Your Name - Data sourced from public APIs.</p>
     </footer>
 
     <script src="script.js"></script>
